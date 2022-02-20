@@ -1,0 +1,17 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - test
+
+before_script:
+  - docker info #to verify that docker is installed on the build server
+
+build_image:
+  stage: build
+  script:
+    - docker build -t mkdocs .
+
+produce_and_serve:
+  stage: test
+  script:
+    - docker run -v ~/mkdocs-demo:/home/mkdocs-image/root mkdocs produce #where ~/mkdocs-demo is the path to the mkdocs project on the host machine
+    - docker run --net="host" -v ~/mkdocs-demo:/home/mkdocs-image/root mkdocs serve #the container is using the host network by setting --net="host"
