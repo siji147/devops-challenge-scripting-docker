@@ -34,7 +34,7 @@ To ensure that the container can read, produce and serve the mkdocs files on the
 
 The path to the volume on the container is defined as `/home/mkdocs-image/root`. This is a fixed path and should not be changed.
 
-- Produce
+- **Produce:**
 The `produce` command will build the mkdocs resources and zip the resulting static web assets in a `.tar.gz` format.
 The command to run is:
     
@@ -48,7 +48,7 @@ The command to run is:
     docker run -v ~/mkdocs-demo:/home/mkdocs-image/root mkdocs produce
     ```
     
-- Serve
+- **Serve:**
 The `serve` command will extract the `.tar.gz` files containing the static web assets produced by the `produce` command and then serve it on port 8000
     
     ```bash
