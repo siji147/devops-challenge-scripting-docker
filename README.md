@@ -12,7 +12,7 @@ This challenge is about using Docker to encapsulate a tool called Mkdocs ([http:
 
 The Dockerfile in the root of the zipped file contains well-commented steps taken during the mkdocs image build.
 
-The base image for the mkdocs image is `python:3.9`. I tried to use `[3.9-alpine](https://github.com/docker-library/python/blob/f9faff7d8a97e2a71e4fd58a1ff9ee396c6296a6/3.9/alpine3.15/Dockerfile)` to make the image smaller in size but the alpine version did not have `/bin/bash` pre-installed.
+The base image for the mkdocs image is `python:3.9`. I tried to use `python:3.9-alpine` to make the image smaller in size but the alpine version did not have `/bin/bash` pre-installed.
 
 To create an image from the Dockerfile, run this command from the root directory of the zipped file:
 
