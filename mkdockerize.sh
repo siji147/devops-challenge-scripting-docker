@@ -8,8 +8,6 @@ then
     echo "zipping mkdocs resources..."
     # archive the static assests produced in ./site directory
     tar -czf mkdocs-files.tar.gz ./site
-    # archive all files in the mkdocs root directory
-    # tar -czf mkdocs-files.tar.gz .
 elif [ $input_value == serve ]
 then
     echo "extracting static files from archive..."
