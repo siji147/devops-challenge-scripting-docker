@@ -1,12 +1,12 @@
-# woven-planet-challenge
+# DevOps Challenge - Docker and Scripting
 
-### Introduction
+## Introduction
 
 ---
 
-This challenge is about using Docker to encapsulate a tool called Mkdocs ([http://www.mkdocs.org/](http://www.mkdocs.org/)) to produce and serve a website in order to avoid installing Mkdocs locally.
+This challenge is about using Docker to encapsulate a tool called [Mkdocs](http://www.mkdocs.org/) to produce and serve a website in order to avoid installing Mkdocs locally. The full details of the challenge can be found [here](./devops-challenge.md).
 
-### Building the Image
+## Building the Image
 
 ---
 
@@ -26,7 +26,7 @@ This will build the image as `mkdocs` and assign it the tag `latest`.You can als
 docker build -t <image-name>:<tag> .
 ```
 
-### Running the Container
+## Running the Container
 
 ---
 
@@ -37,34 +37,33 @@ The path to the volume on the container is defined as `/home/mkdocs-image/root`.
 - **Produce:**
 The `produce` command will build the mkdocs resources and zip the resulting static web assets in a `.tar.gz` format.
 The command to run is:
-    
+
     ```bash
     docker run -v <path-to-mkdocs-directory-on-local>:/home/mkdocs-image/root mkdocs produce
     ```
-    
+
     e.g.
-    
+
     ```bash
     docker run -v ~/mkdocs-demo:/home/mkdocs-image/root mkdocs produce
     ```
-    
+
 - **Serve:**
 The `serve` command will extract the `.tar.gz` files containing the static web assets produced by the `produce` command and then serve it on port 8000
-    
+
     ```bash
     docker run --net="host" -v <path-to-mkdocs-directory-on-local>:/home/mkdocs-image/root mkdocs serve
     ```
-    
+
     e.g.
-    
+
     ```bash
     docker run --net="host" -v ~/mkdocs-demo:/home/mkdocs-image/root mkdocs serve
     ```
-    
-    **The website will be reachable on the host machine at localhost:8000.**
-    
 
-### Slight Deviation from the Problem Statement
+    The website will be reachable on the host machine at `localhost:8000`.
+
+## Slight Deviation from the Problem Statement
 
 ---
 
